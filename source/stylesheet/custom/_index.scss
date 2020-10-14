@@ -1,0 +1,84 @@
+.d-flex {
+  display: flex;
+}
+.j-sb {
+  justify-content: space-between;
+}
+
+.ai-c {
+  align-items: center;;
+}
+/*在PC上隱藏漢堡選單*/
+.wrap{
+  max-width: 100%;
+  margin: 0 auto;
+}
+.header{
+  padding: 30px 88px;
+  background: $cornField;
+}
+.menu{ 
+  li a{
+    display: block;
+    font-weight: 600;
+    color: $zeus;
+    padding: 1em;
+    text-decoration: none;
+    &:hover{
+      background: $milan;
+      border-bottom: 1px dashed $dimGray;
+    }
+  }
+}
+
+/*在PC上隱藏漢堡選單*/
+.showmenu{
+  display: none;
+}
+@media screen and (max-width: 767px){
+  .header {
+    // 固定選單
+    position: relative;
+    width: 100%;
+    text-align: center;
+    background: $cornField;
+    padding: 10px 0;
+    justify-content: center;
+    .menu {
+      /*絕對定位疊在網頁上*/
+      position: absolute;
+      top: 100%;
+      right: 100%;
+      width:  100%; 
+      z-index: 120;
+       /*隱藏選單開始*/
+      overflow: hidden;
+      /*隱藏選單結束*/
+      display: flex;
+      flex-direction: column;  
+      transition: .8s;
+      li a{
+        display: block;
+        background: $cornField;
+        color: $zeus;
+        border-top: 1px dashed $dimGray;
+        padding: 16px 0;
+        text-decoration: none;
+        &:hover{
+          background: $milan;
+        }
+      }
+    }
+  }
+ 
+  .showmenu{
+    display: block;
+    position: absolute;
+    left: 13px;
+    color: $eclipse;
+  }
+  /*jQ點擊後動態在 body 加上 class */
+  .menu-show .menu{
+    right: 0;
+  }
+}
